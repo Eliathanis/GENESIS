@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4yjbq8k5m6v6"]
+
+[ext_resource type="Script" path="res://scripts/singletons/network_manager.gd" id="1_6w4gv"]
+[ext_resource type="Script" path="res://scripts/singletons/game_state.gd" id="2_6w4gv"]
+[ext_resource type="PackedScene" uid="uid://bvm0c0y3s2z2c" path="res://scenes/ui/main_menu.tscn" id="3_6w4gv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4w4gv"]
+albedo_color = Color(0.8, 0.8, 0.8, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5w4gv"]
+size = Vector3(10, 0.1, 10)
+
+[node name="Main" type="Node3D"]
+
+[node name="NetworkManager" type="Node" parent="."]
+script = ExtResource("1_6w4gv")
+
+[node name="GameState" type="Node" parent="."]
+script = ExtResource("2_6w4gv")
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="Ground" type="MeshInstance3D" parent="World"]
+mesh = SubResource("BoxMesh_5w4gv")
+material_override = SubResource("StandardMaterial3D_4w4gv")
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 1
+
+[node name="MainMenu" type="Control" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("3_6w4gv")
