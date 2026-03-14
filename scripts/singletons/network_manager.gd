@@ -3,7 +3,8 @@ extends Node
 # GENESIS Network Manager
 # Handles multiplayer connections for the game
 
-class_name NetworkManager
+# NOTE: Don't use class_name for autoload singletons
+# class_name NetworkManager
 
 signal player_connected(player_id, player_name)
 signal player_disconnected(player_id)

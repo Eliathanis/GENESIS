@@ -3,7 +3,8 @@ extends Node
 # GENESIS Game State Manager
 # Manages global game state and persistence
 
-class_name GameState
+# NOTE: Don't use class_name for autoload singletons
+# class_name GameState
 
 signal game_state_changed(state_name)
 signal player_data_updated(player_id)
